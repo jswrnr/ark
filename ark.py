@@ -29,7 +29,7 @@ def find_match(needle):
     try: 
         hay = pyautogui.screenshot( region= (botManagement.screen.width/2 - 100, botManagement.screen.heigth/2 - 150, 200, 250) )
     except: 
-        print("Meer is leer")
+        print("error while looking for needle")
         botManagement.runBot=False
     hay = cv.cvtColor(np.array(hay), cv.COLOR_RGB2BGR)
     result = cv.matchTemplate(hay, needle, cv.TM_CCOEFF_NORMED)
@@ -58,6 +58,7 @@ def get_rod(rng):
     
 
 #functions for event listener
+#not in use
 def on_press(key):
     global botManagement
     print(key)
@@ -95,7 +96,7 @@ def main():
 
         x -=1
         
-botManagement = BotManagement(Screen(2560, 1440), True, "C:/Users/JonathanW/Projects/Python/Ark/screenshots", "needle2.png")
+botManagement = BotManagement(Screen(2560, 1440), True, "./screenshots", "needle2.png")
 
 if __name__ == "__main__" :
     main()
